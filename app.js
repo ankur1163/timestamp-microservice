@@ -1,4 +1,3 @@
-
 "use strict";
 var mongo = require("mongodb").MongoClient;
 var express = require('express');
@@ -12,7 +11,7 @@ let MONGO_URL = "mongodb://ankur1163:lightbulb1@ds013946.mlab.com:13946/ank1163"
 
 
 var app = express();
-app.listen(3000);
+app.listen(process.env.PORT || 5000);
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
@@ -25,25 +24,19 @@ mongo.connect(MONGO_URL, function (error, db) {
     } else {
     console.log('MongoDB successfully connected on port 27017.');
     }
-
     // start the server
-
     app.listen(3000, function() {
         console.log('Express server listening on port 3000');
     });
-
 });
-
 MONGO_URL.Book.insert({
  title:"refactor the dom",
  author:"ty he",
  category:"tech"
-
 })
 MONGO_URL.Book.insert({
  title:"1",
  author:"2e",
  category:"3"
-
 })
 */
